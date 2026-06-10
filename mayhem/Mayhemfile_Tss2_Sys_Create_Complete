@@ -1,0 +1,8 @@
+project: tpm2-tss
+target: Tss2_Sys_Create_Complete
+testsuite:
+  - file:///mayhem/mayhem/testsuite/Tss2_Sys_Create_Complete
+cmds:
+  - cmd: /mayhem/Tss2_Sys_Create_Complete
+    libfuzzer: true
+    dictionary: /mayhem/mayhem/tpm2.dict

@@ -1,0 +1,44 @@
+# TPM2 structure tokens to help the SAPI _Complete unmarshalers past the response header
+# and into the union/length-prefixed bodies. Values are big-endian (TPM2 wire order).
+
+# Response/structure tags (TPM_ST_*)
+tag_no_sessions="\x80\x01"
+tag_sessions="\x80\x02"
+tag_creation="\x80\x21"
+tag_verified="\x80\x22"
+tag_auth_secret="\x80\x23"
+tag_hashcheck="\x80\x24"
+tag_auth_signed="\x80\x25"
+
+# Common response codes (TPM_RC_*), 4-byte big-endian
+rc_success="\x00\x00\x00\x00"
+rc_initialize="\x00\x00\x01\x00"
+rc_failure="\x00\x00\x01\x01"
+rc_size="\x00\x00\x01\xd5"
+
+# Capability selectors (TPM_CAP_*)
+cap_algs="\x00\x00\x00\x00"
+cap_handles="\x00\x00\x00\x01"
+cap_commands="\x00\x00\x00\x02"
+cap_pcrs="\x00\x00\x00\x05"
+cap_tpm_properties="\x00\x00\x00\x06"
+cap_pcr_properties="\x00\x00\x00\x07"
+cap_ecc_curves="\x00\x00\x00\x08"
+
+# Algorithm ids (TPM_ALG_*)
+alg_sha1="\x00\x04"
+alg_sha256="\x00\x0b"
+alg_sha384="\x00\x0c"
+alg_rsa="\x00\x01"
+alg_ecc="\x00\x23"
+alg_null="\x00\x10"
+
+# Permanent handles (TPM_RH_*)
+rh_owner="\x40\x00\x00\x01"
+rh_null="\x40\x00\x00\x07"
+
+# Small length prefixes commonly seen on TPM2B fields
+len0="\x00\x00"
+len2="\x00\x02"
+len4="\x00\x04"
+len32="\x00\x20"
